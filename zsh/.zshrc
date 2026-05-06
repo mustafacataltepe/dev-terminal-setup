@@ -27,7 +27,7 @@ alias j="z"
 alias dps="docker ps"
 alias dlog="docker logs -f"
 alias dexec="docker exec -it"
-alias dstop="docker stop $(docker ps -q)"
+dstop() { docker stop $(docker ps -q); }
 
 alias gs="git status"
 alias ga="git add ."
@@ -44,3 +44,10 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 
 # --- fzf installer integration ---
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# --- SDKMAN (Java version manager) ---
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# --- Docker ---
+export DOCKER_BUILDKIT=1
