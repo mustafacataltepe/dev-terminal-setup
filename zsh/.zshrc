@@ -51,3 +51,14 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # --- Docker ---
 export DOCKER_BUILDKIT=1
+
+# ── AI / LLM ──────────────────────────────────────────────────
+alias ai='ollama run qwen3:8b'                          # quick chat
+alias aic='ollama run qwen2.5-coder:14b'                # code chat
+alias aid='aider --model ollama/deepseek-r1:14b'        # aider default
+alias aidr='aider --model ollama/deepseek-r1:14b --no-auto-commits'  # manual commits
+alias oc='opencode'                                     # opencode TUI
+alias hm='hermes'                                       # hermes agent
+
+# ── Dev layout ────────────────────────────────────────────────
+alias dev='tmux new-window \; split-window -h -p 35 \; send-keys "aider --model ollama/deepseek-r1:14b" Enter \; select-pane -t 0'

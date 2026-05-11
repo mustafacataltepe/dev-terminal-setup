@@ -245,6 +245,41 @@ gl         # git log --oneline --graph --decorate
 
 ---
 
+## AI / LLM Integration
+
+Local inference via Ollama on ROCm (AMD RX 6800M, 12 GB VRAM).
+
+### Models
+
+| Model             | Size   | Use                           |
+|-------------------|--------|-------------------------------|
+| qwen3:8b          | 5.2 GB | Quick chat, hermes, opencode  |
+| qwen2.5-coder:14b | 9.0 GB | Code chat, autocomplete       |
+| deepseek-r1:14b   | 9.0 GB | Aider (reasoning, commits)    |
+
+### Agents
+
+| Agent    | Install         | Config                  |
+|----------|-----------------|-------------------------|
+| aider    | uv tool install | ~/.aider.conf.yml       |
+| opencode | curl install    | ~/.opencode.json        |
+| hermes   | curl install    | ~/.hermes/config.yaml   |
+| Continue | IntelliJ plugin | ~/.continue/config.yaml |
+
+### AI Shortcuts
+
+```bash
+ai         # ollama run qwen3:8b          — quick chat
+aic        # ollama run qwen2.5-coder:14b — code chat
+aid        # aider deepseek-r1:14b        — aider default
+aidr       # aider --no-auto-commits      — manual commits
+oc         # opencode                     — opencode TUI
+hm         # hermes                       — hermes agent
+dev        # tmux split: editor + aider   — dev layout
+```
+
+---
+
 ## Fuzzy Workflows
 
 ### History search
@@ -325,5 +360,4 @@ sdk current java
 * Project-specific tmux sessions (auto-layout per project)
 * Docker-compose workflow shortcuts
 * SSH + remote server session management
-* LLM/Ollama CLI integration
 * Per-profile kitty themes (dev / ssh / logs)
